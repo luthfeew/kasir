@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('penjualan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->unsignedBigInteger('id_user');
             $table->string('no_nota');
             $table->dateTime('tanggal');
             $table->decimal('discount', 3, 0)->default(0);
@@ -25,6 +24,10 @@ return new class extends Migration
             $table->decimal('grand_total', 20, 0);
             $table->decimal('laba', 20, 0);
             $table->timestamps();
+        });
+
+        Schema::table('penjualan', function (Blueprint $table) {
+            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 

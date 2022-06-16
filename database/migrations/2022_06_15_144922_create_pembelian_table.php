@@ -16,14 +16,17 @@ return new class extends Migration
         Schema::create('pembelian', function (Blueprint $table) {
             $table->id();
             $table->string('kode_barang');
-            $table->foreign('kode_barang')->references('kode_barang')->on('barang');
             $table->integer('qty');
             $table->decimal('harga_beli', 20, 0);
             $table->string('satuan');
             $table->dateTime('tgl_beli');
-            $table->string('supplier');
-            $table->foreign('supplier')->references('id')->on('supplier');
+            $table->unsignedBigInteger('supplier');
             $table->timestamps();
+        });
+
+        Schema::table('pembelian', function (Blueprint $table) {
+            $table->foreign('kode_barang')->references('kode_barang')->on('barang');
+            $table->foreign('supplier')->references('id')->on('supplier');
         });
     }
 

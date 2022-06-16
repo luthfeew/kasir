@@ -15,15 +15,18 @@ return new class extends Migration
     {
         Schema::create('penjualan_detail', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('id_penjualan');
-            $table->unsignedInteger('id_barang');
-            $table->foreign('id_penjualan')->references('id')->on('penjualan');
-            $table->foreign('id_barang')->references('id')->on('barang');
+            $table->unsignedBigInteger('id_penjualan');
+            $table->unsignedBigInteger('id_barang');
             $table->integer('qty');
             $table->decimal('harga_satuan', 20, 0);
             $table->decimal('harga_beli', 20, 0);
             $table->decimal('total', 20, 0);
             $table->timestamps();
+        });
+
+        Schema::table('penjualan_detail', function (Blueprint $table) {
+            $table->foreign('id_penjualan')->references('id')->on('penjualan');
+            $table->foreign('id_barang')->references('id')->on('barang');
         });
     }
 
