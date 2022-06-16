@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>Data Karyawan</h1>
+<h1>Data Pemasok/Supplier</h1>
 @stop
 
 @section('content')
@@ -11,44 +11,39 @@
     <div class="col-12">
 
         <div class="card">
-            <div class="card-header">
-                <!-- <h3 class="card-title">DataTable with default features</h3> -->
-            </div>
             <div class="card-body">
-                <table id="tablekaryawan" class="table table-bordered table-striped">
+                <a href="{{ route('supplier.create') }}" class="btn btn-md btn-success mb-3"><i class="fa fa-plus"></i></a>
+                <table id="tablepemasok" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Nama</th>
+                            <th>No Telp</th>
+                            <th>Alamat</th>
                             <th>Email</th>
-                            <th>Role</th>
-                            <th>Last Login</th>
-                            <th>Created at</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($users as $user)
+                        @forelse ($suppliers as $supplier)
                         <tr>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->role}}</td>
-                            <td>{{$user->last_login}}</td>
-                            <td>{{$user->created_at}}</td>
+                            <td>{{$supplier->nama}}</td>
+                            <td>{{$supplier->no_telp}}</td>
+                            <td>{{$supplier->alamat}}</td>
+                            <td>{{$supplier->email}}</td>
                             <td>-</td>
                         </tr>
                         @empty
                         <div class="alert alert-danger text-center">
-                            Data Karyawan tidak tersedia
+                            Data Pemasok tidak tersedia
                         </div>
                         @endforelse
                     </tbody>
                     <tfoot>
                         <tr>
                             <th>Nama</th>
+                            <th>No Telp</th>
+                            <th>Alamat</th>
                             <th>Email</th>
-                            <th>Role</th>
-                            <th>Last Login</th>
-                            <th>Created at</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
@@ -69,7 +64,7 @@
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        let table = new DataTable('#tablekaryawan');
+        let table = new DataTable('#tablepemasok');
     });
 </script>
 @stop
