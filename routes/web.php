@@ -24,3 +24,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('/admin/employee', \App\Http\Controllers\UserController::class);
 Route::resource('/supplier', \App\Http\Controllers\SupplierController::class);
+Route::resource('/item', \App\Http\Controllers\BarangController::class);

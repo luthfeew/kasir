@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Barang')
 
 @section('content_header')
-<h1>Data Pemasok/Supplier</h1>
+<h1>Data Barang</h1>
 @stop
 
 @section('content')
@@ -12,30 +12,28 @@
 
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('supplier.create') }}" class="btn btn-md btn-success mb-3"><i class="fa fa-plus"></i></a>
+                <a href="{{ route('item.create') }}" class="btn btn-md btn-success mb-3"><i class="fa fa-plus"></i></a>
                 <table id="tablepemasok" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Nama</th>
-                            <th>No Telp</th>
-                            <th>Alamat</th>
-                            <th>Email</th>
+                            <th>Kode barang</th>
+                            <th>Nama barang</th>
+                            <th>total barang</th>
+                            <th>harga jual</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($suppliers as $supplier)
+                        @forelse ($barang as $b)
                         <tr>
-                            <td>{{$supplier->nama}}</td>
-                            <td>{{$supplier->no_telp}}</td>
-                            <td>{{$supplier->alamat}}</td>
-                            <td>{{$supplier->email}}</td>
+                            <td>{{$b->kode_barang}}</td>
+                            <td>{{$b->nama_barang}}</td>
+                            <td>{{$b->total_stok}}</td>
+                            <td>{{$b->harga_jual}}</td>
                             <td class="text-center">
-                                <form onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?')" action="{{ route('supplier.destroy', $supplier->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <a href="{{ route('supplier.edit', $supplier->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                
+                                    <a href="{{ route('item.edit', $b->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                                    <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                             </td>
                         </tr>
                         @empty
