@@ -16,4 +16,12 @@ return [
     'important'                     => 'Penting',
     'warning'                       => 'Peringatan',
     'information'                   => 'Informasi',
+    'dashboard'                     => 'Dashboard',
+    'cashier'                       => 'Kasir',
+    'item'                          => 'Barang',
+    'buy'                           => 'Beli',
+    'supplier'                      => 'Supplier',
+    'employee'                      => 'Karyawan',
+    'report'                        => 'LAPORAN',
+    'sale'                          => 'Penjualan',
 ];
