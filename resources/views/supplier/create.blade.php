@@ -9,7 +9,7 @@
     <div class="col-10">
         <div class="card">
             <div class="card-body">
-                <form method="POST" action="{{ route('supplier.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('supplier.store') }}">
                     @csrf
 
                     <div class="form-group">

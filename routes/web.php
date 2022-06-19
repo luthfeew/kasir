@@ -23,7 +23,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route::resource('/cashier', \App\Http\Controllers\CashierController::class);
-Route::resource('/item', \App\Http\Controllers\BarangController::class);
+Route::resource('/item', \App\Http\Controllers\BarangController::class)->parameters(['item' => 'barang']);
 Route::resource('/buy', \App\Http\Controllers\PembelianController::class);
 Route::resource('/supplier', \App\Http\Controllers\SupplierController::class);
 

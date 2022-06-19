@@ -260,6 +260,7 @@ return [
             'text' => 'item',
             'url'  => 'item',
             'icon' => 'fas fa-fw fa-boxes',
+            'active' => ['item/*'],
         ],
         [
             'text' => 'buy',

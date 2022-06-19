@@ -14,7 +14,8 @@ class BarangController extends Controller
      */
     public function index()
     {
-        //
+        $barangs = Barang::all();
+        return view('barang.index', compact('barangs'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('barang.create');
     }
 
     /**
@@ -35,7 +36,19 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kode_barang' => 'required|unique:barangs',
+            'nama_barang' => 'required',
+            'total_stok' => 'required',
+            'harga_beli' => 'required',
+            'harga_jual' => 'required',
+            'kategori_barang' => 'required',
+            'merk_barang' => 'required',
+            'satuan_barang' => 'required',
+        ]);
+
+        Barang::create($request->all());
+        return redirect()->route('item.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -57,7 +70,7 @@ class BarangController extends Controller
      */
     public function edit(Barang $barang)
     {
-        //
+        return view('barang.edit', compact('barang'));
     }
 
     /**
@@ -69,7 +82,19 @@ class BarangController extends Controller
      */
     public function update(Request $request, Barang $barang)
     {
-        //
+        $request->validate([
+            'kode_barang' => 'required|unique:barangs,kode_barang,'.$barang->id,
+            'nama_barang' => 'required',
+            'total_stok' => 'required',
+            'harga_beli' => 'required',
+            'harga_jual' => 'required',
+            'kategori_barang' => 'required',
+            'merk_barang' => 'required',
+            'satuan_barang' => 'required',
+        ]);
+
+        $barang->update($request->all());
+        return redirect()->route('item.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -80,6 +105,7 @@ class BarangController extends Controller
      */
     public function destroy(Barang $barang)
     {
-        //
+        $barang->delete();
+        return redirect()->route('item.index')->with('success', 'Data berhasil dihapus');
     }
 }
