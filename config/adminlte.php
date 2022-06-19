@@ -270,6 +270,7 @@ return [
             'text' => 'supplier',
             'url'  => 'supplier',
             'icon' => 'fas fa-fw fa-download',
+            'active' => ['supplier/*'],
         ],
         ['header' => 'report'],
         [
