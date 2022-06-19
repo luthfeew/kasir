@@ -29,5 +29,5 @@ Route::resource('/supplier', \App\Http\Controllers\SupplierController::class);
 
 Route::resource('/report/sale', \App\Http\Controllers\PenjualanController::class);
 
-// Route::resource('/admin/employee', \App\Http\Controllers\UserController::class);
+Route::resource('/employee', \App\Http\Controllers\KaryawanController::class)->parameters(['employee' => 'user']);
 // Route::resource('/admin/settings', \App\Http\Controllers\UserController::class);

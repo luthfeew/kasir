@@ -282,12 +282,13 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'employee',
-            'url'  => 'admin/employee',
+            'url'  => 'employee',
             'icon' => 'fas fa-fw fa-users',
+            'active' => ['employee/*'],
         ],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => 'settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         // [
